@@ -24,22 +24,41 @@ const style = `
   width: 191px;
 `;
 
+// function styleToObject(str) {
+//   let obj = {};
+//   // массив стилей
+//   const arrayOfStyles = str.split(';');
+
+//   for (let i = 0; i < arrayOfStyles.length; i++) {
+//     // очистить элемент массива от пробелов и символов конца строки
+//     const element = arrayOfStyles[i].trim();
+
+//     if (element !== '') {
+//       const arr = element.split(':');
+//       // ключ нового объекта стилей
+//       const key = arr[0].trim();
+
+//       // свойство объекта с ключом
+//       obj[key] = arr[1].trim();
+//     }
+//   }
+
+//   return obj;
+// }
+
 function styleToObject(str) {
   let obj = {};
+  let key;
   // массив стилей
   const arrayOfStyles = str.split(';');
 
-  for (let i = 0; i < arrayOfStyles.length; i++) {
-    // очистить элемент массива от пробелов и символов конца строки
-    const element = arrayOfStyles[i].trim();
+  for (const iterator of arrayOfStyles) {
+    const element = iterator.trim();
 
     if (element !== '') {
       const arr = element.split(':');
-      // ключ нового объекта стилей
-      const key = arr[0].trim();
 
-      // свойство объекта с ключом
-      obj[key] = arr[1].trim();
+      [key, obj[key]] = arr;
     }
   }
 
