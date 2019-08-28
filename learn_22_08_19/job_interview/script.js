@@ -5,28 +5,25 @@ const sourceStr = 'aaassdbbsaa';
 
 
 //** вариант решения с подсчетом символов до первого отличающегося */
-const groupedArr = groupBeforeFirstDifferent(sourceStr);
 
 // результирующая строка
-const resultStr = groupedArr.join('');
+const resultStr = groupBeforeFirstDifferent(sourceStr);
 console.log('resultStr = ', resultStr);
 
-
-// возвращает массив вида: [3, "a", 2, "s", 1, "d", 2, "b", 1, "s", 2, "a"]
+// возвращает строку вида: "3a2s1d2b1s2a"
 function groupBeforeFirstDifferent(str) {
-  const arr = str.split('');
-  let result = [];
+  let result = '';
   let counter = 1;
 
-  for (let i = 1; i < arr.length+1; i++) {
-    const curr = arr[i];
-    const prev = arr[i-1];
-    
+  for (let i = 1; i < str.length + 1; i++) {
+    const curr = str[i];
+    const prev = str[i - 1];
+
     if (curr === prev) {
       counter++;
     } else {
-      result.push(counter);
-      result.push(prev);
+      result += counter;
+      result += prev;
       counter = 1;
     }
   }
