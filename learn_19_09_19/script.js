@@ -134,7 +134,7 @@ function throttle(func, timeout) {
       }
     }, timeout);
 
-    // вызываем функцию с привязанным this и текущими аргументами
+    // возвращаем функцию с привязанным this и текущими аргументами
     return boundResult(...arguments);
   }
 
