@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+  <style>
+    .hours {
+      color: green
+    }
+  
+    .mins {
+      color: blue
+    }
+  
+    .secs {
+      color: red
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="clock" class="clock"></div>
+
+  <input type="button" onclick="pageClock.start()" value="Старт">
+  <input type="button" onclick="pageClock.stop()" value="Стоп">
+  
+  <input
+    type="button"
+    onclick="alert('Часы должны останавливаться во время alert,\nи продолжать корректно работать после нажатия на ОК')"
+    value="alert для проверки корректного возобновления">
+
+  <script src="script.js"></script>
+</body>
+
+</html>
